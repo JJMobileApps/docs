@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mFileServer 개인정보처리방침</title>
+  <title>mFileServer Privacy Policy</title>
   <meta
     name="description"
-    content="mFileServer 앱의 개인정보처리방침입니다. 파일 공유 서버 기능에서 어떤 정보가 처리되는지 안내합니다."
+    content="Privacy Policy for the mFileServer Android app."
   >
   <style>
     :root {
@@ -28,7 +28,7 @@
 
     body {
       margin: 0;
-      font-family: "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
       line-height: 1.72;
       background:
@@ -159,14 +159,6 @@
       margin-top: 8px;
     }
 
-    .english {
-      margin-top: 24px;
-      padding: 22px;
-      border-radius: 22px;
-      border: 1px dashed rgba(13, 107, 99, 0.34);
-      background: rgba(216, 239, 233, 0.46);
-    }
-
     footer {
       margin-top: 22px;
       color: var(--muted);
@@ -175,11 +167,6 @@
 
     a {
       color: var(--brand);
-    }
-
-    code {
-      font-family: "Consolas", "SFMono-Regular", monospace;
-      font-size: 0.95em;
     }
 
     @media (max-width: 640px) {
@@ -201,14 +188,16 @@
     <section class="hero">
       <div class="hero-top">
         <div class="badge">mFileServer Privacy Policy</div>
-        <h1>개인정보처리방침</h1>
+        <h1>Privacy Policy</h1>
         <p class="lead">
-          mFileServer는 Android 기기를 파일 공유 서버처럼 사용할 수 있게 해주는 앱입니다.
-          이 문서는 앱이 어떤 정보를 처리하는지, 왜 필요한지, 그리고 사용자가 어떤 통제권을 가지는지 설명합니다.
+          mFileServer is an Android app that helps users run their device as a file sharing server.
+          This Privacy Policy explains what information the app may access or process, why it is needed,
+          and what control users have.
         </p>
         <div class="summary">
-          mFileServer는 개발자 운영 서버로 사용자 파일을 일괄 업로드하는 서비스가 아닙니다.
-          데이터는 사용자의 기기 안에서 처리되거나, 사용자가 직접 활성화한 파일 공유 연결을 통해서만 전송됩니다.
+          mFileServer is not a cloud storage service operated by the developer for collecting user files.
+          Data is mainly processed on the user's device or transmitted only when the user explicitly enables
+          file sharing with connected clients.
         </div>
       </div>
       <div class="meta">
@@ -222,121 +211,113 @@
         </div>
         <div class="meta-card">
           <p class="meta-label">Main Features</p>
-          <p class="meta-value">FTP, SFTP, WebDAV file sharing</p>
+          <p class="meta-value">FTP, SFTP, and WebDAV file sharing</p>
         </div>
       </div>
     </section>
 
     <div class="sections">
       <section class="section">
-        <h2>1. 처리하는 정보</h2>
-        <p>mFileServer는 앱 기능 제공을 위해 다음 정보를 처리할 수 있습니다.</p>
+        <h2>1. Information We May Access or Process</h2>
+        <p>mFileServer may access or process the following information to provide its core features:</p>
         <ul>
-          <li>사용자가 선택한 공유 폴더와 그 안의 파일 정보</li>
-          <li>서버 설정값: 포트, 사용자 ID, 비밀번호, 공유 이름, 프로토콜 선택 정보</li>
-          <li>네트워크 연결 상태 및 로컬 서버 동작 정보</li>
-          <li>포그라운드 서비스 및 알림 표시를 위한 상태 정보</li>
-          <li>오류 진단과 안정성 확인을 위한 내부 로그 또는 실행 정보</li>
+          <li>The folder selected by the user for sharing and information about files in that folder</li>
+          <li>Server configuration values such as port, user ID, password, share name, and protocol selection</li>
+          <li>Local network and connection status information required to run the server</li>
+          <li>Foreground service and notification state needed to keep the server available</li>
+          <li>Internal logs or runtime information used for troubleshooting and app stability</li>
         </ul>
       </section>
 
       <section class="section">
-        <h2>2. 정보 이용 목적</h2>
+        <h2>2. How the Information Is Used</h2>
         <ul>
-          <li>사용자가 지정한 폴더를 FTP, SFTP, WebDAV 방식으로 공유하기 위해</li>
-          <li>서버 시작, 중지, 백그라운드 유지, 재부팅 후 복원 기능을 제공하기 위해</li>
-          <li>접속 상태와 서버 구성 정보를 화면에 표시하기 위해</li>
-          <li>오류 대응과 기능 개선을 위해 최소한의 실행 정보를 유지하기 위해</li>
+          <li>To share a user-selected folder through FTP, SFTP, or WebDAV</li>
+          <li>To start, stop, restore, and maintain the file sharing server in the background</li>
+          <li>To show server status and configuration information in the app</li>
+          <li>To diagnose errors and improve reliability and performance</li>
         </ul>
       </section>
 
       <section class="section">
-        <h2>3. 권한 사용 안내</h2>
-        <p>앱은 아래 권한을 기능 제공 목적에 한해 사용할 수 있습니다.</p>
+        <h2>3. Permissions</h2>
+        <p>The app may request the following permissions only for functionality related to the service it provides:</p>
         <ul>
-          <li><strong>인터넷</strong>: 파일 공유 서버 통신 및 클라이언트 연결 처리</li>
-          <li><strong>모든 파일 접근 권한</strong>: 사용자가 선택한 공유 폴더에 접근하기 위해 사용</li>
-          <li><strong>알림 권한</strong>: 서버 실행 상태를 알림으로 표시</li>
-          <li><strong>포그라운드 서비스 권한</strong>: 서버를 백그라운드에서 계속 실행하기 위해 사용</li>
-          <li><strong>부팅 완료 수신</strong>: 사용자가 원할 경우 재부팅 후 서버 상태 복구</li>
+          <li><strong>Internet</strong>: to communicate with connected clients over the network</li>
+          <li><strong>All files access</strong>: to access the folder selected by the user for sharing</li>
+          <li><strong>Notifications</strong>: to show server status while the service is running</li>
+          <li><strong>Foreground service</strong>: to keep the server running in the background</li>
+          <li><strong>Boot completed</strong>: to restore server state after device restart if the user chooses that behavior</li>
         </ul>
       </section>
 
       <section class="section">
-        <h2>4. 정보 저장 및 전송</h2>
+        <h2>4. Data Storage and Transmission</h2>
         <p>
-          앱 설정과 실행 상태 정보는 주로 사용자의 기기 안에 저장됩니다.
-          파일 자체는 사용자가 선택한 저장소 위치에 남아 있으며, 앱이 별도 개발자 서버로 자동 전송하지 않습니다.
+          App settings and service state are primarily stored on the user's device.
+          Files remain in the storage location selected by the user.
         </p>
         <p>
-          사용자가 서버를 실행하면 연결된 클라이언트와의 파일 공유 과정에서 파일 또는 파일 메타데이터가 전송될 수 있습니다.
-          이 전송은 사용자가 직접 활성화한 네트워크 공유 기능의 일부입니다.
-        </p>
-      </section>
-
-      <section class="section">
-        <h2>5. 제3자 제공 및 광고</h2>
-        <p>
-          개발자는 사용자의 파일이나 개인정보를 판매하지 않습니다.
-          이 앱은 제3자 광고 SDK를 포함하지 않으며, 광고 목적의 추적을 수행하지 않습니다.
+          When the user runs the server, files and related metadata may be transmitted to connected clients
+          as part of the sharing feature explicitly initiated by the user.
         </p>
       </section>
 
       <section class="section">
-        <h2>6. 사용자 선택과 삭제</h2>
+        <h2>5. Sharing with Third Parties</h2>
+        <p>
+          The developer does not sell user files or personal data.
+          The app is not designed to transfer user data to a developer-operated cloud service for advertising or resale.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>6. Ads and Tracking</h2>
+        <p>
+          mFileServer does not include third-party advertising SDKs for personalized ads and is not intended to track users for advertising purposes.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>7. User Choices and Deletion</h2>
         <ul>
-          <li>사용자는 언제든지 서버 실행을 중지할 수 있습니다.</li>
-          <li>공유 폴더, 포트, 계정 정보 같은 서버 설정은 사용자가 직접 변경하거나 삭제할 수 있습니다.</li>
-          <li>앱 삭제 또는 앱 데이터 삭제 시 저장된 설정 및 내부 상태 정보가 제거될 수 있습니다.</li>
+          <li>Users can stop the server at any time.</li>
+          <li>Users can change or remove shared folders and server settings inside the app.</li>
+          <li>Users can remove stored app settings by clearing app data or uninstalling the app.</li>
         </ul>
       </section>
 
       <section class="section">
-        <h2>7. 아동의 개인정보</h2>
+        <h2>8. Children's Privacy</h2>
         <p>
-          이 앱은 일반적인 파일 공유 기능을 제공하며, 아동을 대상으로 특별히 설계되지 않았습니다.
-          보호자는 네트워크 공유 기능 사용 시 적절한 지도와 관리를 제공해야 합니다.
+          This app is a general-purpose file sharing tool and is not specifically directed to children.
+          Parents or guardians are responsible for supervising device and network sharing use where appropriate.
         </p>
       </section>
 
       <section class="section">
-        <h2>8. 방침 변경</h2>
+        <h2>9. Changes to This Policy</h2>
         <p>
-          개인정보처리방침은 기능 변경, 법적 요구사항, 배포 정책 변경에 따라 수정될 수 있습니다.
-          중요한 변경이 있으면 이 페이지의 시행일을 함께 갱신합니다.
+          This Privacy Policy may be updated if app features, legal requirements, or distribution policies change.
+          The effective date at the top of this page will be updated when material changes are made.
         </p>
       </section>
 
       <section class="section">
-        <h2>9. 문의처</h2>
+        <h2>10. Contact</h2>
         <p>
-          개인정보 관련 문의는 Google Play 스토어의 개발자 연락처 또는
-          <a href="https://github.com/JJMobileApps/mFileServer">JJMobileApps/mFileServer</a>
-          저장소 정보를 통해 확인해 주세요.
+          For privacy-related questions, please use the developer contact information shown on the Google Play listing
+          or see the repository at
+          <a href="https://github.com/JJMobileApps/mFileServer">JJMobileApps/mFileServer</a>.
         </p>
       </section>
     </div>
 
-    <section class="english">
-      <h2>English Summary</h2>
-      <p>
-        mFileServer turns your Android device into a local file sharing server.
-        It may process the folder you choose to share, server configuration values,
-        local network state, notification status, and internal logs needed to keep the service running.
-      </p>
-      <p>
-        The app mainly operates on your device and only transmits data when you explicitly enable file sharing with connected clients.
-        It does not include third-party advertising SDKs and is not intended to sell personal data.
-      </p>
-    </section>
-
     <footer>
-      Suggested GitHub Pages URL:
+      Privacy Policy URL:
       <a href="https://jjmobileapps.github.io/docs/mFileServer/privacy-policy.html">
         https://jjmobileapps.github.io/docs/mFileServer/privacy-policy.html
       </a>
-      <br>
-      If GitHub Pages is enabled for the repository, this file can be used directly as the Play Store privacy policy URL.
     </footer>
   </main>
 </body>

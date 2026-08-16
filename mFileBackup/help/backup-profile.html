@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mFileBackup Backup Profile Guide</title>
+    <style>
+        :root {
+            --bg-top: #eef2ff;
+            --bg-bottom: #f7f8fc;
+            --panel: rgba(255, 255, 255, 0.92);
+            --ink: #1e2430;
+            --muted: #5c6478;
+            --line: #d8deee;
+            --brand: #4a63a4;
+            --brand-soft: #dfe7ff;
+            --brand-strong: #334c92;
+            --shadow: 0 24px 60px rgba(64, 82, 128, 0.14);
+            --radius-xl: 28px;
+            --radius-lg: 22px;
+            --max-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #ffffff 0, #ffffff 12%, transparent 42%),
+                linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 58%, #eef1f8 100%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 0 auto;
+            padding: 28px 0 56px;
+        }
+
+        .guide-image,
+        .step-card,
+        .note,
+        .nav-bar {
+            background: var(--panel);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+            border-radius: var(--radius-xl);
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 0 16px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--brand);
+            font-weight: 700;
+        }
+
+        .nav-link.disabled {
+            color: #9aa3b8;
+            pointer-events: none;
+            background: #f3f5fb;
+        }
+
+        .nav-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .nav-title {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .guide-image {
+            padding: 18px;
+            border-radius: var(--radius-xl);
+        }
+
+        .guide-image img {
+            display: block;
+            width: 100%;
+            max-width: 760px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .caption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .section {
+            margin-top: 28px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .step-card {
+            padding: 24px;
+            border-radius: var(--radius-lg);
+        }
+
+        .step-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .step-badge {
+            flex: 0 0 auto;
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 26px;
+            font-weight: 900;
+            border: 2px solid rgba(74, 99, 164, 0.24);
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .step-card p,
+        .step-card li,
+        .note p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .step-card ul {
+            margin: 14px 0 0;
+            padding-left: 20px;
+        }
+
+        .note {
+            margin-top: 18px;
+            padding: 22px 24px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(180deg, #ebf0ff, #f8fbff);
+        }
+
+        .note h3 {
+            margin: 0 0 10px;
+            font-size: 22px;
+        }
+
+        .footer {
+            margin-top: 28px;
+        }
+
+        @media (max-width: 980px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .nav-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-link {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(calc(100% - 20px), var(--max-width));
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+
+            .guide-image,
+            .step-card,
+            .note,
+            .nav-bar {
+                padding: 20px;
+                border-radius: 22px;
+            }
+
+            .step-title {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav class="nav-bar" aria-label="Page navigation">
+            <a class="nav-link" href="./share-web-shortcut.html">
+                <span class="nav-icon">&#8592;</span>
+                <span>
+                    <span class="nav-title">Previous Page</span><br>
+                    Share Web Shortcut Guide
+                </span>
+            </a>
+            <div class="nav-link disabled">
+                <span>
+                    <span class="nav-title">Next Page</span><br>
+                    Backup Profile Guide
+                </span>
+                <span class="nav-icon">&#8594;</span>
+            </div>
+        </nav>
+
+        <section class="guide-image">
+            <img src="./img/app_img04.png" alt="mFileBackup backup profile guide image">
+            <div class="caption">
+                The numbered markers in the image match the explanation cards below. This screen is divided into three main setup areas: server connection, backup target settings, and backup options.
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="steps-grid">
+                <article class="step-card">
+                    <div class="step-head">
+                        <div class="step-badge">1</div>
+                        <div class="step-title">Basic Profile Information</div>
+                    </div>
+                    <p>
+                        The profile name helps you distinguish one backup profile from another in the client list.
+                        Use a name that makes the server or backup purpose easy to recognize later.
+                    </p>
+                    <ul>
+                        <li><strong>Profile Name</strong> is the label shown in the client profile list.</li>
+                        <li>The back button returns to the previous screen without saving recent edits.</li>
+                        <li>The check icon at the top right saves the profile.</li>
+                    </ul>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-head">
+                        <div class="step-badge">2</div>
+                        <div class="step-title">Server Connection Settings</div>
+                    </div>
+                    <p>
+                        Marker 1 points to the server connection card.
+                        This area defines how the client connects to the server and whether the current account can be approved and validated.
+                    </p>
+                    <ul>
+                        <li><strong>HTTP / HTTPS</strong> selects the protocol used for the connection.</li>
+                        <li><strong>Server IP/Domain</strong> and <strong>Port</strong> define the exact server address.</li>
+                        <li><strong>Username</strong> and <strong>Password</strong> must match a user created on the server device.</li>
+                        <li><strong>Connected</strong> reflects the current connection and approval result after a successful check.</li>
+                        <li><strong>Refresh</strong> checks the server again and reloads approval or capability information.</li>
+                    </ul>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-head">
+                        <div class="step-badge">3</div>
+                        <div class="step-title">Backup Target Settings</div>
+                    </div>
+                    <p>
+                        Marker 2 points to the backup target card.
+                        This area defines where backup data should go and what kind of backup behavior this profile should use.
+                    </p>
+                    <ul>
+                        <li><strong>Remote Folder Path</strong> selects the server-side target folder for this profile.</li>
+                        <li><strong>Usage Type</strong> decides the overall backup mode. In this example, it is set to <strong>Back up files</strong>.</li>
+                        <li><strong>Backup Direction</strong> is visible because file backup is selected. Here it is set to <strong>Upload</strong>.</li>
+                        <li><strong>Select folders</strong> is used to choose the local source folders that will be uploaded.</li>
+                        <li><strong>Configure file types</strong> defines which file types should be backed up for this profile.</li>
+                    </ul>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-head">
+                        <div class="step-badge">4</div>
+                        <div class="step-title">Backup Options</div>
+                    </div>
+                    <p>
+                        Marker 3 points to the backup options card.
+                        This area controls how uploads run, how retries are handled, when backups are allowed, and how automatic scheduling works.
+                    </p>
+                    <ul>
+                        <li><strong>Simple Upload</strong> uploads only changed files after the last successful backup. Deletions and renames are not checked.</li>
+                        <li><strong>Reupload deleted server files</strong> tries to restore and upload again when the server-side file is already in trash.</li>
+                        <li><strong>Backup only on Wi-Fi</strong> prevents backup activity on mobile data.</li>
+                        <li><strong>Auto Backup</strong> turns scheduled backup on or off.</li>
+                        <li><strong>Auto Backup Schedule</strong> defines the schedule mode. In this example, the interval setup is open.</li>
+                        <li><strong>Auto Backup Interval</strong> is set to <strong>30 minutes</strong>, which is also shown as the minimum allowed interval.</li>
+                    </ul>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-head">
+                        <div class="step-badge">Tip</div>
+                        <div class="step-title">Recommended Setup Order</div>
+                    </div>
+                    <p>
+                        The screen is easiest to configure when you move through the cards from top to bottom.
+                    </p>
+                    <ul>
+                        <li><strong>Step 1:</strong> Enter the profile name.</li>
+                        <li><strong>Step 2:</strong> Complete the server connection card and confirm the connection result.</li>
+                        <li><strong>Step 3:</strong> Choose the remote folder and the usage type.</li>
+                        <li><strong>Step 4:</strong> If file backup is selected, review backup direction, local folders, and file type settings.</li>
+                        <li><strong>Step 5:</strong> Finish the backup options such as simple upload, Wi-Fi-only behavior, and auto backup.</li>
+                    </ul>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-head">
+                        <div class="step-badge">Note</div>
+                        <div class="step-title">Why Some Fields Change</div>
+                    </div>
+                    <p>
+                        This screen is dynamic, so the visible options can change depending on the connected server account and the selected usage type.
+                    </p>
+                    <ul>
+                        <li>If the server user allows only certain usage types, the dropdown shows only those allowed choices.</li>
+                        <li><strong>Backup Direction</strong>, <strong>Select folders</strong>, and <strong>Configure file types</strong> can appear or disappear depending on the selected mode.</li>
+                        <li>The auto backup area can also change depending on whether interval, daily, weekly, or monthly scheduling is selected.</li>
+                        <li>Some options are forced automatically in specific modes, such as simplified upload behavior in full media backup mode.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section note">
+            <h3>Best Practice</h3>
+            <p>
+                Save the profile only after the server connection is confirmed and the target settings are reviewed together.
+                This reduces confusion later when multiple profiles point to different users, folders, or backup rules.
+            </p>
+        </section>
+
+        <nav class="nav-bar footer" aria-label="Page navigation">
+            <a class="nav-link" href="./share-web-shortcut.html">
+                <span class="nav-icon">&#8592;</span>
+                <span>
+                    <span class="nav-title">Previous Page</span><br>
+                    Share Web Shortcut Guide
+                </span>
+            </a>
+            <div class="nav-link disabled">
+                <span>
+                    <span class="nav-title">Next Page</span><br>
+                    Backup Profile Guide
+                </span>
+                <span class="nav-icon">&#8594;</span>
+            </div>
+        </nav>
+    </main>
+</body>
+</html>

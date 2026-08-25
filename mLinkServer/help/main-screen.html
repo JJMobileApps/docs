@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mLinkServer Help</title>
+    <style>
+        :root {
+            --bg-top: #edf7ef;
+            --bg-bottom: #f7fbf8;
+            --panel: rgba(255, 255, 255, 0.94);
+            --ink: #1c1f23;
+            --muted: #59615c;
+            --line: #d6e4da;
+            --brand: #2e7d32;
+            --brand-soft: #dff0e3;
+            --brand-strong: #1f5f24;
+            --warn: #8a4a10;
+            --warn-soft: #fff7e8;
+            --shadow: 0 24px 60px rgba(45, 100, 55, 0.14);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --max-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #ffffff 0, #ffffff 12%, transparent 42%),
+                linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 60%, #eef6f0 100%);
+        }
+
+        a {
+            color: var(--brand);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 0 auto;
+            padding: 28px 0 56px;
+        }
+
+        .hero,
+        .panel,
+        .note,
+        .nav-bar {
+            background: var(--panel);
+            border: 1px solid rgba(255, 255, 255, 0.76);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 18px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 0 16px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--brand);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-link.disabled {
+            color: #9aa3b8;
+            pointer-events: none;
+            background: #f3f5fb;
+        }
+
+        .nav-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .nav-title {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        h2 {
+            margin: 0 0 14px;
+            font-size: 28px;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        p,
+        li {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .screenshot {
+            margin: 0;
+        }
+
+        .screenshot img {
+            display: block;
+            width: 100%;
+            max-width: 760px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .section {
+            margin-top: 24px;
+        }
+
+        .panel {
+            padding: 28px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 46px minmax(0, 1fr);
+            gap: 14px;
+            min-height: 120px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: #fff;
+        }
+
+        .step-num {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .feature-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin: 8px 0;
+        }
+
+        .feature-list strong {
+            color: var(--ink);
+        }
+
+        .note {
+            margin-top: 24px;
+            padding: 24px 28px;
+            background: linear-gradient(180deg, var(--warn-soft), #fffdf7);
+            border-color: #f0d9ad;
+        }
+
+        .note h2 {
+            color: var(--warn);
+        }
+
+        @media (max-width: 860px) {
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-link {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(calc(100% - 20px), var(--max-width));
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+
+            .hero,
+            .panel,
+            .note,
+            .nav-bar {
+                padding: 20px;
+                border-radius: 22px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav class="nav-bar" aria-label="Page navigation">
+            <a class="nav-link" href="./index.html">
+                <span class="nav-icon">&#8592;</span>
+                <span>
+                    <span class="nav-title">Previous Page</span><br>
+                    Overview
+                </span>
+            </a>
+            <a class="nav-link" href="./add-link-screen.html">
+                <span>
+                    <span class="nav-title">Next Page</span><br>
+                    Add Link Guide
+                </span>
+                <span class="nav-icon">&#8594;</span>
+            </a>
+        </nav>
+
+        <section class="hero">
+            <figure class="screenshot">
+                <img src="./img/app_img01.png" alt="mLinkServer main screen guide">
+            </figure>
+        </section>
+
+        <section class="section panel">
+            <h2>Main Screen Guide</h2>
+            <div class="steps">
+                <article class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h3>Start HTTP and SFTP Servers</h3>
+                        <p>Check the protocol and port, then use the start buttons to run the server you need.</p>
+                        <ul class="feature-list">
+                            <li>To publish a web link, the HTTP or HTTPS server must be enabled.</li>
+                            <li>To publish an SFTP link, the SFTP server must be enabled.</li>
+                            <li>If login is required, the HTTP or HTTPS server must be enabled.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h3>Access Mode and Device Approval</h3>
+                        <p>Set the access mode and manage device approval from this section.</p>
+                        <p><strong>Mode</strong></p>
+                        <ul class="feature-list">
+                            <li><strong>Allow All:</strong> There is no restriction on normal link access or connection attempts.</li>
+                            <li><strong>Login Required:</strong> Users must sign in with an account configured in mLinkServer.</li>
+                            <li><strong>Login + Approval:</strong> Users must sign in and also be approved by the administrator.</li>
+                        </ul>
+                        <p><strong>Device Approval</strong></p>
+                        <p>In Login + Approval mode, a requested user must be approved before access is allowed. Link access is judged by user and IP together.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h3>Login IP Blocking</h3>
+                        <p>Repeated login failures can trigger automatic IP blocking. You can adjust the failure count and block duration to match your environment.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h3>Link List</h3>
+                        <p>Create and manage the links users will open. Each rule defines the public link and the target server that receives the forwarded request.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">5</div>
+                    <div>
+                        <h3>User Management</h3>
+                        <p>Add users for sign-in access and decide which links each user can use.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">6</div>
+                    <div>
+                        <h3>External App Connection</h3>
+                        <p>When an external app such as mFileServer requests a connection to this mLinkServer, you can approve or reject it from this section.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section panel">
+            <h2>Basic Setup Order</h2>
+            <ul class="feature-list">
+                <li><strong>1. Check server ports:</strong> Make sure the HTTP and SFTP ports do not conflict with other apps.</li>
+                <li><strong>2. Choose the security mode:</strong> For outside access, Login Required or Login + Approval is usually the safer choice.</li>
+                <li><strong>3. Create users:</strong> Add accounts first when you plan to protect links with login.</li>
+                <li><strong>4. Create links:</strong> Set the public domain, path, or SFTP connection name and point it to the target server.</li>
+                <li><strong>5. Approve devices or browsers:</strong> Complete approval when external apps or browser admin access are requested.</li>
+            </ul>
+        </section>
+
+        <section class="note">
+            <h2>Security Note</h2>
+            <p>
+                When you expose the server outside your local network, use login, approval, and IP blocking carefully.
+                Check your port forwarding, domain, and shared secret settings before allowing wider access.
+            </p>
+        </section>
+
+        <nav class="nav-bar section" aria-label="Page navigation">
+            <a class="nav-link" href="./index.html">
+                <span class="nav-icon">&#8592;</span>
+                <span>
+                    <span class="nav-title">Previous Page</span><br>
+                    Overview
+                </span>
+            </a>
+            <a class="nav-link" href="./add-link-screen.html">
+                <span>
+                    <span class="nav-title">Next Page</span><br>
+                    Add Link Guide
+                </span>
+                <span class="nav-icon">&#8594;</span>
+            </a>
+        </nav>
+    </main>
+</body>
+</html>

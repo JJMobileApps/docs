@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>mLinkServer ?꾩?留?/title>
+    <title>mLinkServer 도움말</title>
     <style>
         :root {
             --bg-top: #edf7ef;
@@ -245,18 +245,18 @@
 </head>
 <body>
     <main class="page">
-        <nav class="nav-bar" aria-label="?섏씠吏 ?대룞">
+        <nav class="nav-bar" aria-label="페이지 이동">
             <a class="nav-link" href="./main-screen.html">
                 <span class="nav-icon">&#8592;</span>
                 <span>
-                    <span class="nav-title">?댁쟾 ?섏씠吏</span><br>
-                    硫붿씤 ?붾㈃ ?덈궡
+                    <span class="nav-title">이전 페이지</span><br>
+                    메인 화면 안내
                 </span>
             </a>
             <a class="nav-link" href="./web-admin-screen.html">
                 <span>
-                    <span class="nav-title">?ㅼ쓬 ?섏씠吏</span><br>
-                    ??愿由ъ옄 ?덈궡
+                    <span class="nav-title">다음 페이지</span><br>
+                    웹 관리자 안내
                 </span>
                 <span class="nav-icon">&#8594;</span>
             </a>
@@ -264,46 +264,46 @@
 
         <section class="hero">
             <figure class="screenshot">
-                <img src="../img/app_img02.png" alt="mLinkServer 留곹겕 異붽? ?붾㈃">
+                <img src="../img/app_img02.png" alt="mLinkServer 링크 추가 화면">
             </figure>
         </section>
 
         <section class="section panel">
-            <h2>留곹겕 異붽? ?붾㈃ ?덈궡</h2>
+            <h2>링크 추가 화면 안내</h2>
             <div class="steps">
                 <article class="step">
                     <div class="step-num">1</div>
                     <div>
-                        <h3>???/h3>
-                        <p>?꾨떖???붿껌???ㅼ젣濡?諛쏆쓣 ?먮낯 ?쒕쾭 二쇱냼瑜??ㅼ젙?⑸땲??</p>
+                        <h3>대상</h3>
+                        <p>전달된 요청을 실제로 받을 원본 서버 주소를 설정합니다.</p>
                         <ul class="feature-list">
-                            <li><strong>?곌껐 諛⑹떇:</strong> 吏곸젒 IP/?꾨찓???묒냽?몄?, ?곌껐???몃? ????곸씤吏 ?좏깮?⑸땲??</li>
-                            <li><strong>?꾨줈?좎퐳:</strong> ?곌껐?섎젮???쒕쾭??留욎떠 `http`, `https`, `sftp` 以??섎굹瑜?怨좊쫭?덈떎.</li>
-                            <li><strong>IP 二쇱냼 / ?ы듃:</strong> ?ㅼ젣 ????몄뒪?몄? ?ы듃瑜??낅젰?⑸땲??</li>
-                            <li><strong>??湲곌린 IP ?ъ슜:</strong> ????쒕쾭媛 ??湲곌린?먯꽌 ?ㅽ뻾 以묒씪 ???꾩옱 湲곌린 IP瑜??먮룞?쇰줈 梨꾩썎?덈떎.</li>
-                            <li><strong>?곌껐 ?뚯뒪??</strong> 留곹겕瑜???ν븯湲??꾩뿉 ????쒕쾭???꾨떖?????덈뒗吏 ?뺤씤?⑸땲??</li>
+                            <li><strong>연결 방식:</strong> 직접 IP/도메인 접속인지, 연결된 외부 앱 대상인지 선택합니다.</li>
+                            <li><strong>프로토콜:</strong> 연결하려는 서버에 맞춰 `http`, `https`, `sftp` 중 하나를 고릅니다.</li>
+                            <li><strong>IP 주소 / 포트:</strong> 실제 대상 호스트와 포트를 입력합니다.</li>
+                            <li><strong>이 기기 IP 사용:</strong> 대상 서버가 이 기기에서 실행 중일 때 현재 기기 IP를 자동으로 채웁니다.</li>
+                            <li><strong>연결 테스트:</strong> 링크를 저장하기 전에 대상 서버에 도달할 수 있는지 확인합니다.</li>
                         </ul>
                     </div>
                 </article>
                 <article class="step">
                     <div class="step-num">2</div>
                     <div>
-                        <h3>留곹겕</h3>
-                        <p>?ъ슜?먭? ??洹쒖튃???묎렐?????ъ슜??怨듦컻 ?꾨찓?? 寃쎈줈, ?먮뒗 ?곌껐 ?대쫫???ㅼ젙?⑸땲??</p>
+                        <h3>링크</h3>
+                        <p>사용자가 이 규칙에 접근할 때 사용할 공개 도메인, 경로, 또는 연결 이름을 설정합니다.</p>
                         <ul class="feature-list">
-                            <li><strong>留ㅼ튂 諛⑹떇:</strong> ?꾨찓???몄뒪??湲곗??몄?, 濡쒖뺄 寃쎈줈 湲곗??몄? ?좏깮?⑸땲??</li>
-                            <li><strong>留곹겕:</strong> `cloud.abc.com` ?먮뒗 `abc.com/aaa` 媛숈? 怨듦컻 二쇱냼 議곌컖???낅젰?⑸땲??</li>
+                            <li><strong>매치 방식:</strong> 도메인/호스트 기준인지, 로컬 경로 기준인지 선택합니다.</li>
+                            <li><strong>링크:</strong> `cloud.abc.com` 또는 `abc.com/aaa` 같은 공개 주소 조각을 입력합니다.</li>
                         </ul>
                     </div>
                 </article>
                 <article class="step">
                     <div class="step-num">3</div>
                     <div>
-                        <h3>?ъ슜??/h3>
-                        <p>??留곹겕 洹쒖튃???ъ슜?????덈뒗 ?ъ슜?먮? ?좏깮?⑸땲??</p>
+                        <h3>사용자</h3>
+                        <p>이 링크 규칙을 사용할 수 있는 사용자를 선택합니다.</p>
                         <ul class="feature-list">
-                            <li><strong>紐⑤뱺 ?ъ슜??</strong> ?꾩옱 ?묎렐 紐⑤뱶 議곌굔??留뚯”?섎뒗 紐⑤뱺 ?뱀씤 怨꾩젙???덉슜?⑸땲??</li>
-                            <li><strong>?좏깮???ъ슜??</strong> ?뱀젙 怨꾩젙?쇰줈留???洹쒖튃 ?ъ슜???쒗븳?⑸땲??</li>
+                            <li><strong>모든 사용자:</strong> 현재 접근 모드 조건을 만족하는 모든 승인 계정에 허용합니다.</li>
+                            <li><strong>선택한 사용자:</strong> 특정 계정으로만 이 규칙 사용을 제한합니다.</li>
                         </ul>
                     </div>
                 </article>
@@ -311,34 +311,34 @@
         </section>
 
         <section class="section panel">
-            <h2>??????뺤씤</h2>
+            <h2>저장 전 확인</h2>
             <ul class="feature-list">
-                <li>????쒕쾭媛 ?좏깮???꾨줈?좎퐳怨??ы듃?먯꽌 ?ㅽ뻾 以묒씠硫??묎렐 媛?ν븳吏 ?뺤씤?섏꽭??</li>
-                <li>湲곗〈 洹쒖튃怨?寃뱀튂吏 ?딅뒗 留곹겕 媛믪쓣 ?좏깮?섏꽭??</li>
-                <li>??ν븯湲??꾩뿉 ?대뼡 ?ъ슜?먭? ??洹쒖튃???묎렐?????덈뒗吏 ?ㅼ떆 ?뺤씤?섏꽭??</li>
+                <li>대상 서버가 선택한 프로토콜과 포트에서 실행 중이며 접근 가능한지 확인하세요.</li>
+                <li>기존 규칙과 겹치지 않는 링크 값을 선택하세요.</li>
+                <li>저장하기 전에 어떤 사용자가 이 규칙에 접근할 수 있는지 다시 확인하세요.</li>
             </ul>
         </section>
 
         <section class="note">
-            <h2>?쇱슦????/h2>
+            <h2>라우팅 팁</h2>
             <p>
-                ??곴낵 留곹겕 媛쒕뀗??遺꾨━?댁꽌 ?앷컖?섎㈃ ?명빀?덈떎.
-                ??곸? ?ㅼ젣 ?먮낯 ?쒕쾭?닿퀬, 留곹겕??洹?????쒕쾭瑜?媛由ы궎??怨듦컻 ?꾨찓?? 寃쎈줈, ?먮뒗 ?곌껐 ?대쫫?낅땲??
+                대상과 링크 개념을 분리해서 생각하면 편합니다.
+                대상은 실제 원본 서버이고, 링크는 그 대상 서버를 가리키는 공개 도메인, 경로, 또는 연결 이름입니다.
             </p>
         </section>
 
-        <nav class="nav-bar section" aria-label="?섏씠吏 ?대룞">
+        <nav class="nav-bar section" aria-label="페이지 이동">
             <a class="nav-link" href="./main-screen.html">
                 <span class="nav-icon">&#8592;</span>
                 <span>
-                    <span class="nav-title">?댁쟾 ?섏씠吏</span><br>
-                    硫붿씤 ?붾㈃ ?덈궡
+                    <span class="nav-title">이전 페이지</span><br>
+                    메인 화면 안내
                 </span>
             </a>
             <a class="nav-link" href="./web-admin-screen.html">
                 <span>
-                    <span class="nav-title">?ㅼ쓬 ?섏씠吏</span><br>
-                    ??愿由ъ옄 ?덈궡
+                    <span class="nav-title">다음 페이지</span><br>
+                    웹 관리자 안내
                 </span>
                 <span class="nav-icon">&#8594;</span>
             </a>

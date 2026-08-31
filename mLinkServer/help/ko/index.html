@@ -168,13 +168,6 @@
             margin: 8px 0;
         }
 
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 22px;
-        }
-
         .diagram {
             margin-top: 24px;
             padding: 24px;
@@ -197,17 +190,16 @@
             font-size: 15px;
         }
 
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            min-height: 38px;
-            padding: 0 14px;
-            border-radius: 999px;
-            background: #fff;
+        .support-note {
+            margin-top: 22px;
+            padding: 14px 18px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(180deg, #ffffff, #f4faf5);
             border: 1px solid var(--line);
-            color: var(--brand-strong);
-            font-size: 14px;
-            font-weight: 800;
+        }
+
+        .support-note strong {
+            color: var(--ink);
         }
 
         .nav-card {
@@ -323,13 +315,8 @@
                 승인된 외부 앱과의 연결도 모바일 화면에서 간단히 다룰 수 있습니다.
                 별도의 클라우드 서버 없이 원하는 대상 주소로 연결을 중개하고 싶은 경우에 맞춰 설계되었습니다.
             </p>
-            <div class="pill-row" aria-label="지원 기능">
-                <span class="pill">HTTP</span>
-                <span class="pill">HTTPS</span>
-                <span class="pill">SFTP</span>
-                <span class="pill">사용자</span>
-                <span class="pill">기기 승인</span>
-                <span class="pill">앱 간 터널</span>
+            <div class="support-note">
+                <strong>연결 가능한 외부 앱:</strong> mFileServer
             </div>
         </section>
 

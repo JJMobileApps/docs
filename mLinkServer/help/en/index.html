@@ -168,13 +168,6 @@
             margin: 8px 0;
         }
 
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 22px;
-        }
-
         .diagram {
             margin-top: 24px;
             padding: 24px;
@@ -197,17 +190,16 @@
             font-size: 15px;
         }
 
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            min-height: 38px;
-            padding: 0 14px;
-            border-radius: 999px;
-            background: #fff;
+        .support-note {
+            margin-top: 22px;
+            padding: 14px 18px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(180deg, #ffffff, #f4faf5);
             border: 1px solid var(--line);
-            color: var(--brand-strong);
-            font-size: 14px;
-            font-weight: 800;
+        }
+
+        .support-note strong {
+            color: var(--ink);
         }
 
         .nav-card {
@@ -322,13 +314,8 @@
                 Use mLinkServer to create and manage HTTP, HTTPS, and SFTP routes, control user access, and connect approved devices through a simple mobile interface.
                 It is designed for users who want flexible self-hosted access without relying on a separate cloud server.
             </p>
-            <div class="pill-row" aria-label="Supported features">
-                <span class="pill">HTTP</span>
-                <span class="pill">HTTPS</span>
-                <span class="pill">SFTP</span>
-                <span class="pill">Users</span>
-                <span class="pill">Device approval</span>
-                <span class="pill">App-to-app tunnel</span>
+            <div class="support-note">
+                <strong>Connectable external app:</strong> mFileServer
             </div>
         </section>
 

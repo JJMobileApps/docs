@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mLinkServer Help</title>
+    <style>
+        :root {
+            --bg-top: #edf7ef;
+            --bg-bottom: #f7fbf8;
+            --panel: rgba(255, 255, 255, 0.94);
+            --ink: #1c1f23;
+            --muted: #59615c;
+            --line: #d6e4da;
+            --brand: #2e7d32;
+            --brand-soft: #dff0e3;
+            --brand-strong: #1f5f24;
+            --warn: #8a4a10;
+            --warn-soft: #fff7e8;
+            --shadow: 0 24px 60px rgba(45, 100, 55, 0.14);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --max-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #ffffff 0, #ffffff 12%, transparent 42%),
+                linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 60%, #eef6f0 100%);
+        }
+
+        a {
+            color: var(--brand);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 0 auto;
+            padding: 28px 0 56px;
+        }
+
+        .hero,
+        .panel,
+        .note,
+        .nav-bar {
+            background: var(--panel);
+            border: 1px solid rgba(255, 255, 255, 0.76);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 18px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 0 16px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--brand);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-link.disabled {
+            color: #9aa3b8;
+            pointer-events: none;
+            background: #f3f5fb;
+        }
+
+        .nav-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .nav-title {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        h2 {
+            margin: 0 0 14px;
+            font-size: 28px;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        p,
+        li {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .screenshot {
+            margin: 0;
+        }
+
+        .screenshot img {
+            display: block;
+            width: 100%;
+            max-width: 760px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .section {
+            margin-top: 24px;
+        }
+
+        .panel {
+            padding: 28px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 46px minmax(0, 1fr);
+            gap: 14px;
+            min-height: 120px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: #fff;
+        }
+
+        .step-num {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .feature-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin: 8px 0;
+        }
+
+        .note {
+            margin-top: 24px;
+            padding: 24px 28px;
+            background: linear-gradient(180deg, var(--warn-soft), #fffdf7);
+            border-color: #f0d9ad;
+        }
+
+        .note h2 {
+            color: var(--warn);
+        }
+
+        @media (max-width: 860px) {
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-link {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(calc(100% - 20px), var(--max-width));
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+
+            .hero,
+            .panel,
+            .note,
+            .nav-bar {
+                padding: 20px;
+                border-radius: 22px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav class="nav-bar" aria-label="Page navigation">
+            <a class="nav-link" href="./main-screen.html">
+                <span class="nav-icon">&#8592;</span>
+                <span>
+                    <span class="nav-title">Previous Page</span><br>
+                    Main Screen Guide
+                </span>
+            </a>
+            <a class="nav-link" href="./web-admin-screen.html">
+                <span>
+                    <span class="nav-title">Next Page</span><br>
+                    Web Admin Guide
+                </span>
+                <span class="nav-icon">&#8594;</span>
+            </a>
+        </nav>
+
+        <section class="hero">
+            <figure class="screenshot">
+                <img src="../img/app_img02.png" alt="mLinkServer add link screen">
+            </figure>
+        </section>
+
+        <section class="section panel">
+            <h2>Add Link Screen Guide</h2>
+            <div class="steps">
+                <article class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h3>Target</h3>
+                        <p>Set the original server address that will receive the forwarded request.</p>
+                        <ul class="feature-list">
+                            <li><strong>Connection Type:</strong> Choose direct IP/domain access or a connected external app target.</li>
+                            <li><strong>Protocol:</strong> Select `http`, `https`, or `sftp` based on the server you want to connect to.</li>
+                            <li><strong>IP Address / Port:</strong> Enter the actual target host and port.</li>
+                            <li><strong>Use this device IP:</strong> Fill the current device IP automatically when the target server is running on this device.</li>
+                            <li><strong>Test Connection:</strong> Check whether the target server can be reached before saving the link.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h3>Link</h3>
+                        <p>Set the public domain, path, or connection name that users will use to reach this rule.</p>
+                        <ul class="feature-list">
+                            <li><strong>Match Type:</strong> Choose whether the rule matches a domain/host or a local path.</li>
+                            <li><strong>Link:</strong> Enter the address fragment to publish, such as `cloud.abc.com` or `abc.com/aaa`.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h3>Users</h3>
+                        <p>Choose which users can use this link rule.</p>
+                        <ul class="feature-list">
+                            <li><strong>All Users:</strong> Allow every approved account that matches the active access mode.</li>
+                            <li><strong>Selected Users:</strong> Limit this rule to specific accounts only.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section panel">
+            <h2>Save Checklist</h2>
+            <ul class="feature-list">
+                <li>Make sure the target server is running and reachable on the selected protocol and port.</li>
+                <li>Choose a link value that does not overlap with an existing rule.</li>
+                <li>Review which users can access the rule before saving.</li>
+            </ul>
+        </section>
+
+        <section class="note">
+            <h2>Routing Tip</h2>
+            <p>
+                Keep the target and the link concept separate. The target is the original destination server.
+                The link is the public domain, path, or connection name that points to that target.
+            </p>
+        </section>
+
+        <nav class="nav-bar section" aria-label="Page navigation">
+            <a class="nav-link" href="./main-screen.html">
+                <span class="nav-icon">&#8592;</span>
+                <span>
+                    <span class="nav-title">Previous Page</span><br>
+                    Main Screen Guide
+                </span>
+            </a>
+            <a class="nav-link" href="./web-admin-screen.html">
+                <span>
+                    <span class="nav-title">Next Page</span><br>
+                    Web Admin Guide
+                </span>
+                <span class="nav-icon">&#8594;</span>
+            </a>
+        </nav>
+    </main>
+</body>
+</html>

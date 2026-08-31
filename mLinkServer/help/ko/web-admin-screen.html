@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mLinkServer ?꾩?留?/title>
+    <style>
+        :root {
+            --bg-top: #edf7ef;
+            --bg-bottom: #f7fbf8;
+            --panel: rgba(255, 255, 255, 0.94);
+            --ink: #1c1f23;
+            --muted: #59615c;
+            --line: #d6e4da;
+            --brand: #2e7d32;
+            --brand-soft: #dff0e3;
+            --brand-strong: #1f5f24;
+            --warn: #8a4a10;
+            --warn-soft: #fff7e8;
+            --shadow: 0 24px 60px rgba(45, 100, 55, 0.14);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --max-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #ffffff 0, #ffffff 12%, transparent 42%),
+                linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 60%, #eef6f0 100%);
+        }
+
+        a {
+            color: var(--brand);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 0 auto;
+            padding: 28px 0 56px;
+        }
+
+        .hero,
+        .panel,
+        .note,
+        .nav-bar {
+            background: var(--panel);
+            border: 1px solid rgba(255, 255, 255, 0.76);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 18px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 0 16px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--brand);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-link.disabled {
+            color: #9aa3b8;
+            pointer-events: none;
+            background: #f3f5fb;
+        }
+
+        .nav-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .nav-title {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        h2 {
+            margin: 0 0 14px;
+            font-size: 28px;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        p,
+        li {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .screenshot {
+            margin: 0;
+        }
+
+        .screenshot img {
+            display: block;
+            width: 100%;
+            max-width: 760px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .section {
+            margin-top: 24px;
+        }
+
+        .panel {
+            padding: 28px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 46px minmax(0, 1fr);
+            gap: 14px;
+            min-height: 120px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: #fff;
+        }
+
+        .step-num {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .feature-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin: 8px 0;
+        }
+
+        .note {
+            margin-top: 24px;
+            padding: 24px 28px;
+            background: linear-gradient(180deg, var(--warn-soft), #fffdf7);
+            border-color: #f0d9ad;
+        }
+
+        .note h2 {
+            color: var(--warn);
+        }
+
+        @media (max-width: 860px) {
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-link {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(calc(100% - 20px), var(--max-width));
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+
+            .hero,
+            .panel,
+            .note,
+            .nav-bar {
+                padding: 20px;
+                border-radius: 22px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav class="nav-bar" aria-label="?섏씠吏 ?대룞">
+            <a class="nav-link" href="./add-link-screen.html">
+                <span class="nav-icon">&#8592;</span>
+                <span>
+                    <span class="nav-title">?댁쟾 ?섏씠吏</span><br>
+                    留곹겕 異붽? ?덈궡
+                </span>
+            </a>
+            <div class="nav-link disabled">
+                <span>
+                    <span class="nav-title">?ㅼ쓬 ?섏씠吏</span><br>
+                    ??愿由ъ옄 ?덈궡
+                </span>
+                <span class="nav-icon">&#8594;</span>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <figure class="screenshot">
+                <img src="../img/app_img03.png" alt="mLinkServer ??愿由ъ옄 ?섏씠吏">
+            </figure>
+        </section>
+
+        <section class="section panel">
+            <h2>??愿由ъ옄 ?섏씠吏 ?덈궡</h2>
+            <div class="steps">
+                <article class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h3>釉뚮씪?곗??먯꽌 ?ㅼ젙</h3>
+                        <p>
+                            ??釉뚮씪?곗??먯꽌 愿由ъ옄 ?섏씠吏瑜??댁뼱 ?덈뱶濡쒖씠?????붾㈃??吏곸젒 ?ㅼ뼱媛吏 ?딄퀬??                            ?쒕쾭 ?ㅼ젙, 留곹겕 洹쒖튃, ?ъ슜??怨꾩젙, ?몃? ???곌껐??愿由ы븷 ???덉뒿?덈떎.
+                        </p>
+                        <ul class="feature-list">
+                            <li>?쒕쾭 二쇱냼 ?ㅼ뿉 `/admin` ??遺숈뿬 愿由ъ옄 ?섏씠吏瑜??쎈땲??</li>
+                            <li>?????붾㈃?먯꽌 留곹겕 異붽?, 洹쒖튃 ?뺤씤, ?ъ슜??愿由щ? ?????좎슜?⑸땲??</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h3>?뱀씤??釉뚮씪?곗?留??묎렐</h3>
+                        <p>
+                            ??愿由ъ옄 ?섏씠吏???뱀씤??釉뚮씪?곗? ?몄뀡?먯꽌留??????덉뒿?덈떎.
+                            釉뚮씪?곗???癒쇱? ?뱀씤 ?덉감瑜?嫄곗퀜??愿由ъ옄 ?섏씠吏???ㅼ뼱媛????덉뒿?덈떎.
+                        </p>
+                        <ul class="feature-list">
+                            <li>?ㅽ듃?뚰겕?먯꽌 ?쒕쾭 二쇱냼瑜??뚭퀬 ?덉뼱???뱀씤?섏? ?딆? 釉뚮씪?곗???諛붾줈 ?ㅼ뼱?????놁뒿?덈떎.</li>
+                            <li>?뱀씤 ?덉감???덉긽移?紐삵븳 愿由??섏씠吏 ?묎렐??留됰뒗 ???꾩????⑸땲??</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h3>?꾩껜 ?덉슜 紐⑤뱶?щ룄 愿由ъ옄 ?뱀씤? ?꾩슂</h3>
+                        <p>
+                            ?쒕쾭 ?묎렐 紐⑤뱶瑜?<strong>?꾩껜 ?덉슜</strong>?쇰줈 ?먯뼱??愿由ъ옄 ?섏씠吏 ?뱀씤 ?덉감???앸왂?섏? ?딆뒿?덈떎.
+                            愿由ъ옄 ?섏씠吏????긽 蹂꾨룄??釉뚮씪?곗? ?뱀씤 ?④퀎瑜??붽뎄?⑸땲??
+                        </p>
+                        <ul class="feature-list">
+                            <li><strong>?꾩껜 ?덉슜</strong>? ?쇰컲 留곹겕 ?묎렐 ?쒗븳留??꾪솕?⑸땲??</li>
+                            <li>愿由ъ옄 ?섏씠吏???쒕쾭 ?ㅼ젙??諛붽? ???덇린 ?뚮Ц??蹂꾨룄濡?蹂댄샇?⑸땲??</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h3>愿由ы븷 ???덈뒗 ??ぉ</h3>
+                        <p>
+                            ??愿由ъ옄 ?섏씠吏?먯꽌???깆뿉??蹂댁씠??二쇱슂 愿由??곸뿭??嫄곗쓽 洹몃?濡??ㅻ０ ???덉뒿?덈떎.
+                            ?쒕쾭 愿由? 留곹겕 紐⑸줉, ?ъ슜??愿由? ?몃? ???곌껐 ?곹깭瑜??뺤씤?섍퀬 ?섏젙?????덉뒿?덈떎.
+                        </p>
+                        <ul class="feature-list">
+                            <li>?꾩옱 留곹겕瑜??뺤씤?섍퀬 ??留곹겕瑜?異붽??????덉뒿?덈떎.</li>
+                            <li>?쒖꽦 ?ъ슜?먯? ?묎렐 ?ㅼ젙???먭??섍퀬 ?섏젙?????덉뒿?덈떎.</li>
+                            <li>?뱀씤???몃? ???곌껐 ?곹깭瑜?紐⑤땲?곕쭅?????덉뒿?덈떎.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section panel">
+            <h2>沅뚯옣 ?ъ슜 諛⑹떇</h2>
+            <ul class="feature-list">
+                <li>泥섏쓬?먮뒗 紐⑤컮???깆뿉???쒕쾭瑜??쒖옉?섍퀬 釉뚮씪?곗? ?뱀씤???꾨즺?섏꽭??</li>
+                <li>洹쒖튃怨??ъ슜???ㅼ젙??諛섎났?댁꽌 諛붽퓭?????뚮뒗 ??愿由ъ옄 ?섏씠吏媛 ???명빀?덈떎.</li>
+                <li>怨듭슜 ?먮뒗 ?꾩떆 釉뚮씪?곗??먯꽌 ?묒뾽?덈떎硫?愿由ъ옄 ?섏씠吏 ?ъ슜 ??濡쒓렇?꾩썐?섏꽭??</li>
+            </ul>
+        </section>
+
+        <section class="note">
+            <h2>蹂댁븞 ?덈궡</h2>
+            <p>
+                愿由ъ옄 ?섏씠吏???쇰컲 留곹겕 ?묎렐蹂대떎 誘쇨컧?⑸땲?? ?쒕쾭 ?숈옉??諛붽? ???덇린 ?뚮Ц?낅땲??
+                ?쒕쾭瑜????볦? ?ㅽ듃?뚰겕??怨듭쑀???뚮뒗 釉뚮씪?곗? ?뱀씤???좎??섍퀬, ?뱀씤??湲곌린??釉뚮씪?곗? 紐⑸줉??二쇨린?곸쑝濡??뺤씤?섏꽭??
+            </p>
+        </section>
+
+        <nav class="nav-bar section" aria-label="?섏씠吏 ?대룞">
+            <a class="nav-link" href="./add-link-screen.html">
+                <span class="nav-icon">&#8592;</span>
+                <span>
+                    <span class="nav-title">?댁쟾 ?섏씠吏</span><br>
+                    留곹겕 異붽? ?덈궡
+                </span>
+            </a>
+            <div class="nav-link disabled">
+                <span>
+                    <span class="nav-title">?ㅼ쓬 ?섏씠吏</span><br>
+                    ??愿由ъ옄 ?덈궡
+                </span>
+                <span class="nav-icon">&#8594;</span>
+            </div>
+        </nav>
+    </main>
+</body>
+</html>

@@ -15,12 +15,10 @@
             --brand: #2e7d32;
             --brand-soft: #dff0e3;
             --brand-strong: #1f5f24;
-            --warn: #8a4a10;
-            --warn-soft: #fff7e8;
             --shadow: 0 24px 60px rgba(45, 100, 55, 0.14);
             --radius-xl: 28px;
             --radius-lg: 20px;
-            --max-width: 1120px;
+            --max-width: 960px;
         }
 
         * {
@@ -48,10 +46,7 @@
         }
 
         .hero,
-        .panel,
-        .note,
-        .nav-bar,
-        .nav-card {
+        .card {
             background: var(--panel);
             border: 1px solid rgba(255, 255, 255, 0.76);
             border-radius: var(--radius-xl);
@@ -61,52 +56,6 @@
 
         .hero {
             padding: 34px;
-        }
-
-        .nav-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            padding: 14px 18px;
-            margin-bottom: 22px;
-        }
-
-        .nav-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            min-height: 46px;
-            padding: 0 16px;
-            border-radius: 999px;
-            background: #fff;
-            border: 1px solid var(--line);
-            color: var(--brand);
-            font-weight: 700;
-        }
-
-        .nav-link.disabled {
-            color: #9aa3b8;
-            pointer-events: none;
-            background: #f3f5fb;
-        }
-
-        .nav-icon {
-            width: 28px;
-            height: 28px;
-            display: inline-grid;
-            place-items: center;
-            border-radius: 50%;
-            background: var(--brand-soft);
-            color: var(--brand-strong);
-            font-size: 16px;
-            font-weight: 900;
-        }
-
-        .nav-title {
-            color: var(--muted);
-            font-size: 14px;
-            font-weight: 600;
         }
 
         .eyebrow {
@@ -122,130 +71,50 @@
 
         h1 {
             margin: 18px 0 14px;
-            max-width: 900px;
-            font-size: clamp(34px, 5vw, 58px);
-            line-height: 1.05;
+            font-size: clamp(32px, 5vw, 54px);
+            line-height: 1.08;
         }
 
-        h2 {
-            margin: 0 0 14px;
-            font-size: 28px;
-        }
-
-        p,
-        li {
+        p {
             color: var(--muted);
-            font-size: 16px;
+            font-size: 17px;
             line-height: 1.8;
         }
 
-        .lead {
-            max-width: 880px;
-            font-size: 19px;
-        }
-
-        .section {
-            margin-top: 24px;
-        }
-
-        .panel,
-        .nav-card {
-            padding: 28px;
-        }
-
-        .two-col {
+        .grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 18px;
+            margin-top: 24px;
         }
 
-        .feature-list {
-            margin: 0;
-            padding-left: 20px;
+        .card {
+            padding: 28px;
         }
 
-        .feature-list li {
-            margin: 8px 0;
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 26px;
         }
 
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 22px;
-        }
-
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            min-height: 38px;
-            padding: 0 14px;
-            border-radius: 999px;
-            background: #fff;
-            border: 1px solid var(--line);
-            color: var(--brand-strong);
-            font-size: 14px;
-            font-weight: 800;
-        }
-
-        .nav-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 18px;
-            background: linear-gradient(180deg, #ffffff, #f7fbf8);
-        }
-
-        .nav-card strong {
-            color: var(--ink);
-            font-size: 20px;
-        }
-
-        .nav-button {
+        .button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             min-height: 48px;
+            margin-top: 18px;
             padding: 0 18px;
             border-radius: 999px;
             background: var(--brand);
             color: #fff;
             font-weight: 900;
-            white-space: nowrap;
         }
 
-        .note {
-            margin-top: 24px;
-            padding: 24px 28px;
-            background: linear-gradient(180deg, var(--warn-soft), #fffdf7);
-            border-color: #f0d9ad;
-        }
-
-        .note h2 {
-            color: var(--warn);
-        }
-
-        @media (max-width: 820px) {
-            .two-col {
+        @media (max-width: 760px) {
+            .grid {
                 grid-template-columns: 1fr;
             }
 
-            .nav-card {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-bar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .nav-link {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 640px) {
             .page {
                 width: min(calc(100% - 20px), var(--max-width));
                 padding-top: 20px;
@@ -253,138 +122,35 @@
             }
 
             .hero,
-            .panel,
-            .note,
-            .nav-bar,
-            .nav-card {
+            .card {
                 padding: 20px;
                 border-radius: 22px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            h2 {
-                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
     <main class="page">
-        <nav class="nav-bar" aria-label="Page navigation">
-            <div class="nav-link disabled">
-                <span class="nav-icon">&#8592;</span>
-                <span>
-                    <span class="nav-title">Previous Page</span><br>
-                    Overview
-                </span>
-            </div>
-            <a class="nav-link" href="./main-screen.html">
-                <span>
-                    <span class="nav-title">Next Page</span><br>
-                    Main Screen Guide
-                </span>
-                <span class="nav-icon">&#8594;</span>
-            </a>
-        </nav>
-
         <section class="hero">
-            <div class="eyebrow">mLinkServer</div>
-            <h1>Create your own domain or path based links and route them to your target server.</h1>
-            <p class="lead">
-                mLinkServer lets you run your own personal link and access server directly from your Android device.
-            </p>
+            <div class="eyebrow">mLinkServer Help</div>
+            <h1>Choose your help language.</h1>
             <p>
-                Use mLinkServer to create and manage HTTP, HTTPS, and SFTP routes, control user access, and connect approved devices through a simple mobile interface.
-                It is designed for users who want flexible self-hosted access without relying on a separate cloud server.
-            </p>
-            <div class="pill-row" aria-label="Supported features">
-                <span class="pill">HTTP</span>
-                <span class="pill">HTTPS</span>
-                <span class="pill">SFTP</span>
-                <span class="pill">Users</span>
-                <span class="pill">Device approval</span>
-                <span class="pill">App-to-app tunnel</span>
-            </div>
-        </section>
-
-        <section class="section panel">
-            <h2>Key Features</h2>
-            <div class="two-col">
-                <ul class="feature-list">
-                    <li>Run HTTP, HTTPS, and SFTP server access from your device.</li>
-                    <li>Create links using your preferred domain or path instead of relying only on an IP address and port.</li>
-                    <li>Create and manage multiple link routing rules.</li>
-                    <li>Control access with users, login, and device approval.</li>
-                    <li>Manage approved devices and blocked IP addresses.</li>
-                </ul>
-                <ul class="feature-list">
-                    <li>Connect to mFileServer through app-to-app connections, not only by direct IP-based access.</li>
-                    <li>Use tunnel-based connections for supported remote targets.</li>
-                    <li>View server status and manage settings in one place.</li>
-                    <li>Restore server behavior after restart when enabled.</li>
-                    <li>Upgrade to Premium for advanced multi-user and multi-link features.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section panel">
-            <h2>Premium Features</h2>
-            <ul class="feature-list">
-                <li>Enable Login Required mode.</li>
-                <li>Enable Login + Approval mode.</li>
-                <li>Activate more users.</li>
-                <li>Activate more links.</li>
-                <li>Use advanced access control options.</li>
-            </ul>
-        </section>
-
-        <section class="section panel">
-            <h2>Designed For Personal Server Management</h2>
-            <p>
-                mLinkServer is built for personal server management, controlled sharing, and secure access to your own resources.
-                It lets you set up links with the domain or path you want, route them to the target server you choose, and connect with mFileServer through supported app-to-app connections.
-                All server operation and most data processing happen on your device, based on the settings you choose.
-            </p>
-            <p>
-                Google Play in-app purchases are used to unlock Premium features.
+                Select Korean or English to open the matching help pages for the app.
             </p>
         </section>
 
-        <section class="section nav-card">
-            <div>
-                <strong>Main Screen Guide</strong>
-                <p>Open the numbered screen guide for server buttons, access mode, link list, user management, and external app connection.</p>
-            </div>
-            <a class="nav-button" href="./main-screen.html">Open Guide</a>
-        </section>
-
-        <section class="note">
-            <h2>Security Note</h2>
-            <p>
-                When exposing access outside your local network, use login, approval, and IP blocking carefully.
-                Review your router, domain, and port forwarding settings before sharing links with others.
-            </p>
-        </section>
-
-        <nav class="nav-bar section" aria-label="Page navigation">
-            <div class="nav-link disabled">
-                <span class="nav-icon">&#8592;</span>
-                <span>
-                    <span class="nav-title">Previous Page</span><br>
-                    Overview
-                </span>
-            </div>
-            <a class="nav-link" href="./main-screen.html">
-                <span>
-                    <span class="nav-title">Next Page</span><br>
-                    Main Screen Guide
-                </span>
-                <span class="nav-icon">&#8594;</span>
+        <section class="grid" aria-label="Language selection">
+            <a class="card" href="./ko/">
+                <h2>?쒓뎅???꾩?留?/h2>
+                <p>???붾㈃ ?ㅻ챸怨??ㅼ젙 ?덈궡瑜??쒓뎅?대줈 ?뺤씤?⑸땲??</p>
+                <span class="button">?닿린</span>
             </a>
-        </nav>
+            <a class="card" href="./en/">
+                <h2>English Help</h2>
+                <p>Open the app guide and setup help in English.</p>
+                <span class="button">Open</span>
+            </a>
+        </section>
     </main>
 </body>
 </html>

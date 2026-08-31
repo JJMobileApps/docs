@@ -175,6 +175,28 @@
             margin-top: 22px;
         }
 
+        .diagram {
+            margin-top: 24px;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: linear-gradient(180deg, #ffffff, #f6fbf7);
+        }
+
+        .diagram img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .diagram p {
+            margin: 14px 0 0;
+            font-size: 15px;
+        }
+
         .pill {
             display: inline-flex;
             align-items: center;
@@ -307,6 +329,17 @@
                 <span class="pill">Users</span>
                 <span class="pill">Device approval</span>
                 <span class="pill">App-to-app tunnel</span>
+            </div>
+        </section>
+
+        <section class="section panel">
+            <h2>How The Connection Flow Works</h2>
+            <div class="diagram">
+                <img src="../img/mlinkserver-flow-overview.png" alt="Diagram showing outside access reaching mLinkServer through port forwarding and then routing to an internal app by local address or an external app by tunnel.">
+                <p>
+                    This example shows the basic flow: an outside user opens a domain or path, the request reaches your home router by port forwarding,
+                    mLinkServer receives it on the Android phone, and then forwards it to either an internal app by local address or an external app by tunnel.
+                </p>
             </div>
         </section>
 

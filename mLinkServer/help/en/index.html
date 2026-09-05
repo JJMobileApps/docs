@@ -228,6 +228,48 @@
             white-space: nowrap;
         }
 
+        .guide-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .guide-item {
+            display: grid;
+            grid-template-columns: 42px minmax(0, 1fr) 24px;
+            align-items: center;
+            gap: 14px;
+            min-height: 104px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: linear-gradient(180deg, #ffffff, #f7fbf8);
+            transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+        }
+
+        .guide-item:hover,
+        .guide-item:focus-visible {
+            border-color: var(--brand);
+            box-shadow: 0 10px 24px rgba(45, 100, 55, .14);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .guide-number {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-weight: 900;
+        }
+
+        .guide-item strong { color: var(--ink); font-size: 18px; }
+        .guide-item p { margin: 4px 0 0; font-size: 14px; line-height: 1.5; }
+        .guide-arrow { color: var(--brand); font-size: 23px; font-weight: 900; }
+
         .note {
             margin-top: 24px;
             padding: 24px 28px;
@@ -241,6 +283,10 @@
 
         @media (max-width: 820px) {
             .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-list {
                 grid-template-columns: 1fr;
             }
 
@@ -373,12 +419,26 @@
             </p>
         </section>
 
-        <section class="section nav-card">
-            <div>
-                <strong>Main Screen Guide</strong>
-                <p>Open the numbered screen guide for server buttons, access mode, link list, user management, and external app connection.</p>
+        <section class="section panel">
+            <h2>Help Topics</h2>
+            <p>Select a topic to open its guide directly.</p>
+            <div class="guide-list" aria-label="Help topics">
+                <a class="guide-item" href="./main-screen.html">
+                    <span class="guide-number">1</span>
+                    <div class="guide-copy"><strong>Main Screen Guide</strong><p>Learn about starting the server, access modes, and the main management menus.</p></div>
+                    <span class="guide-arrow">&#8594;</span>
+                </a>
+                <a class="guide-item" href="./add-link-screen.html">
+                    <span class="guide-number">2</span>
+                    <div class="guide-copy"><strong>Add Link Guide</strong><p>Set the target server, link rule, and allowed users.</p></div>
+                    <span class="guide-arrow">&#8594;</span>
+                </a>
+                <a class="guide-item" href="./web-admin-screen.html">
+                    <span class="guide-number">3</span>
+                    <div class="guide-copy"><strong>Web Admin Guide</strong><p>Manage the server and links from a browser.</p></div>
+                    <span class="guide-arrow">&#8594;</span>
+                </a>
             </div>
-            <a class="nav-button" href="./main-screen.html">Open Guide</a>
         </section>
 
         <section class="note">

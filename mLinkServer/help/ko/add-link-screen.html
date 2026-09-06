@@ -307,6 +307,20 @@
                         </ul>
                     </div>
                 </article>
+                <article class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h3>SFTP 링크 설정 및 이용</h3>
+                        <p>SFTP 링크를 사용하려면 먼저 mLinkServer의 SFTP 서버가 실행 중이어야 합니다. SFTP 링크에는 도메인이나 경로 대신 연결 이름을 등록합니다.</p>
+                        <ul class="feature-list">
+                            <li><strong>링크 등록:</strong> 프로토콜은 <code>sftp</code>를 선택하고, 링크에는 연결 이름만 입력합니다. 예: <code>linkname</code></li>
+                            <li><strong>SFTP 클라이언트 접속:</strong> SFTP 클라이언트에서 <code>mLinkServer 주소:SFTP 포트</code>로 접속합니다.</li>
+                            <li><strong>사용자명 입력:</strong> 사용자명 앞에 <code>연결이름/</code>을 붙여 입력합니다. 예: <code>linkname/sftpuser</code></li>
+                            <li><strong>로그인 및 승인 사용 시:</strong> mLinkServer를 로그인 후 이용하도록 설정했다면 웹 서버도 실행해야 합니다. 웹 브라우저에서 <code>mLinkServer주소/linkname</code>으로 접속해 로그인하고, 필요한 경우 기기 승인을 완료한 뒤 SFTP 클라이언트로 접속합니다. 예: <code>http://192.168.0.10:8080/linkname</code></li>
+                            <li><strong>승인 기준:</strong> 웹에서 완료한 이용 승인은 동일한 IP 주소에서 접속하는 SFTP 클라이언트에 적용됩니다.</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
         </section>
 

@@ -307,6 +307,20 @@
                         </ul>
                     </div>
                 </article>
+                <article class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h3>Configure and Use an SFTP Link</h3>
+                        <p>To use an SFTP link, the mLinkServer SFTP server must be running. For an SFTP link, register a connection name instead of a domain or path.</p>
+                        <ul class="feature-list">
+                            <li><strong>Register the link:</strong> Select <code>sftp</code> as the protocol and enter only a connection name for the link. Example: <code>linkname</code></li>
+                            <li><strong>Connect with an SFTP client:</strong> Connect the SFTP client to <code>mLinkServer address:SFTP port</code>.</li>
+                            <li><strong>Enter the username:</strong> Prefix the actual SFTP username with <code>connection-name/</code>. Example: <code>linkname/sftpuser</code></li>
+                            <li><strong>When login and approval are enabled:</strong> The web server must also be running. In a web browser, open <code>mLinkServer-address/linkname</code>, sign in, and complete device approval if required before connecting with the SFTP client. Example: <code>http://192.168.0.10:8080/linkname</code></li>
+                            <li><strong>Approval scope:</strong> Access approval completed on the web applies to SFTP client connections from the same IP address.</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
         </section>
 

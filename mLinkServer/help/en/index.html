@@ -366,6 +366,33 @@
         </section>
 
         <section class="section panel">
+            <h2>Connect to the Server You Want with One Address</h2>
+            <p>
+                mLinkServer does not directly provide a website or files.
+                It acts as an address guide that connects requests to another server that is already running.
+            </p>
+            <p>
+                For example, if your file server's actual address is <code>192.168.0.20:8080</code>,
+                you do not need to remember that address and port every time. After registering a link in mLinkServer,
+                you can connect with an address you chose, such as <code>https://my-link.example/files</code>.
+            </p>
+            <p>
+                Requests arriving at <code>/files</code> are forwarded by mLinkServer to the configured file server.
+                You can separate servers by path under one domain, or connect to different servers with subdomains such as
+                <code>photos.example.com</code> and <code>drive.example.com</code>.
+            </p>
+            <p>
+                In short, register a rule that says “when a request arrives at this address, connect it to this server.”
+                You can then use your chosen domain or path link instead of the target server's IP address and port number.
+            </p>
+            <p>
+                <strong>To connect from outside your home or office network,</strong> configure port forwarding on your router
+                to the port where mLinkServer is running on the Android device. Port forwarding is generally not needed when
+                connecting from the same Wi-Fi or local network.
+            </p>
+        </section>
+
+        <section class="section panel">
             <h2>How The Connection Flow Works</h2>
             <div class="diagram">
                 <img src="../img/mlinkserver-flow-overview.png" alt="Diagram showing outside access reaching mLinkServer through port forwarding and then routing to an internal app by local address or an external app by tunnel.">

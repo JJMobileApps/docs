@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" hreflang="ko" href="./server-screen-ko.html">
     <title>mFileBackup Server Screen Guide</title>
     <style>
         :root {
@@ -254,7 +255,7 @@
         </nav>
 
         <section class="guide-image">
-            <img src="./img/app_img01.png" alt="mFileBackup main screen guide image">
+            <img src="./img/app_img01.png" alt="mFileBackup server screen with guide markers 1 through 4">
             <div class="caption">
                 The numbered markers in the image match the explanation cards below.
             </div>
@@ -300,13 +301,13 @@
                         <div class="step-title">Web Shortcut Links</div>
                     </div>
                     <p>
-                        This is the main feature for mapping an external access address to an internal server or path.
-                        Use this menu to add links and define where incoming requests should be forwarded.
+                        Open this menu to manage web shortcuts shared with users.
+                        Each shortcut gives access to the selected user's content through a browser.
                     </p>
                     <ul>
-                        <li>You can create links based on a domain, path, or connection name.</li>
-                        <li>Access to each registered link can be assigned from the user list.</li>
-                        <li>You can decide which users are allowed to use each link.</li>
+                        <li>Review and manage shortcuts that have already been shared.</li>
+                        <li>Create a shortcut from a user's share action in Manage Users.</li>
+                        <li>See the Share Web Shortcut Guide for setup details.</li>
                     </ul>
                 </article>
 
@@ -328,22 +329,6 @@
 
                 <article class="step-card">
                     <div class="step-head">
-                        <div class="step-badge">5</div>
-                        <div class="step-title">IP Access / Block</div>
-                    </div>
-                    <p>
-                        This security feature automatically blocks an IP address after repeated login failures.
-                        When the switch is enabled, you can also configure the failure limit and block duration.
-                    </p>
-                    <ul>
-                        <li><strong>Max failed attempts</strong> is the number of failed logins allowed before blocking starts.</li>
-                        <li><strong>Block duration</strong> is the length of the block, and <code>0</code> means permanent.</li>
-                        <li>This is useful for reducing brute-force login attempts.</li>
-                    </ul>
-                </article>
-
-                <article class="step-card">
-                    <div class="step-head">
                         <div class="step-badge">Tip</div>
                         <div class="step-title">Recommended Setup Order</div>
                     </div>
@@ -353,8 +338,8 @@
                     <ul>
                         <li><strong>Step 1:</strong> Create at least one account in <code>Manage Users</code>.</li>
                         <li><strong>Step 2:</strong> Review the protocol and port, then start the server.</li>
-                        <li><strong>Step 3:</strong> Add your routing entries in <code>Web Shortcut Links</code>.</li>
-                        <li><strong>Step 4:</strong> Enable device approval and IP blocking if you need stronger security.</li>
+                        <li><strong>Step 3:</strong> Use <code>Web Shortcut Links</code> when you need browser access for a user.</li>
+                        <li><strong>Step 4:</strong> Enable device approval if you want to limit access to approved devices.</li>
                     </ul>
                 </article>
             </div>
@@ -363,9 +348,8 @@
         <section class="section note">
             <h3>Security Tip</h3>
             <p>
-                If you plan to use the server from an external network, it is a good idea to enable both
-                <strong>Approve Devices</strong> and <strong>IP Access / Block</strong>.
-                Device approval controls who can connect, while IP blocking helps defend against repeated attack attempts.
+                If you plan to use the server from an external network, consider enabling
+                <strong>Approve Devices</strong> to limit access to approved devices.
             </p>
         </section>
 

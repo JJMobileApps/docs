@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" hreflang="ko" href="./share-web-shortcut-ko.html">
     <title>mFileBackup Share Web Shortcut Guide</title>
     <style>
         :root {
@@ -269,14 +270,14 @@
                     </div>
                     <p>
                         In the user management list, tap the share icon for the target user to open the web shortcut sharing dialog.
-                        This action creates a browser-access shortcut that is tied to that specific user account.
-                        The shared link can open the content immediately without requiring the user to enter account information, and it can be used only in the first browser that opens it.
+                        The shortcut is tied to that user account when you save it.
+                        Approved browsers can open the shared link without entering account credentials. If you set a shortcut password, each new browser must enter it before approval.
                     </p>
                     <ul>
                         <li>The share icon is shown next to the user card.</li>
                         <li>The shortcut is created for the selected user only.</li>
                         <li>Users can view the content directly by opening the shared link.</li>
-                        <li>The shortcut becomes bound to the first browser that accesses it.</li>
+                        <li>New browsers can be approved within the configured time and browser limit.</li>
                         <li>This is useful when you want to give browser access without exposing the full admin flow.</li>
                     </ul>
                 </article>
@@ -287,45 +288,47 @@
                         <div class="step-title">Configure the Web Shortcut</div>
                     </div>
                     <p>
-                        This dialog defines how the web shortcut can be opened and how long it remains valid.
-                        It also lets you protect the first access with an optional password.
+                        Set the server address, available period, approval time limit, and maximum number of browsers.
+                        Enter 0 for any period or browser limit to make it unlimited.
                     </p>
                     <ul>
                         <li><strong>Server Address</strong> is the browser address that the shortcut will use. If you are using a custom domain or a different address, enter the exact address that users should open.</li>
-                        <li><strong>Access Keep Period</strong> controls how long the allowed browser can keep access after approval.</li>
-                        <li><strong>First-Use Window</strong> limits how long the shortcut can wait before its first successful use.</li>
-                        <li><strong>Shortcut password (optional)</strong> adds a one-time password challenge before the browser becomes the allowed browser.</li>
+                        <li><strong>accessCode</strong> is generated automatically and cannot be edited. Copy it with the copy icon or generate a new one with the refresh icon on the right. Save / Share saves the code shown here.</li>
+                        <li><strong>Available period</strong> starts when the first browser is approved. Enter 0 days for unlimited access.</li>
+                        <li><strong>Approval time limit</strong> starts when the link is created and limits when new browsers can be approved. Enter 0 hours for no time limit.</li>
+                        <li><strong>Maximum browsers</strong> limits how many browsers can be approved. Enter 0 for no browser limit.</li>
+                        <li><strong>Shortcut password (optional)</strong> is checked once for each new browser before approval.</li>
                     </ul>
                 </article>
 
                 <article class="step-card">
                     <div class="step-head">
                         <div class="step-badge">Tip</div>
-                        <div class="step-title">How Browser Binding Works</div>
+                        <div class="step-title">How Browser Approval Works</div>
                     </div>
                     <p>
-                        The first browser that opens the shortcut becomes the allowed browser for that shared link.
-                        After that, other browsers cannot automatically connect with the same shortcut.
+                        New browsers can be approved until the approval time limit or maximum browser count is reached.
+                        Approved browsers are identified by a secure cookie, regardless of IP address.
                     </p>
                     <ul>
-                        <li>If the password is left blank, the first browser can connect immediately.</li>
-                        <li>If a password is set, the browser must enter it once before it becomes the allowed browser.</li>
-                        <li>This reduces accidental reuse of the same shortcut on multiple browsers.</li>
+                        <li>If the password is blank, a new browser can be approved immediately.</li>
+                        <li>If a password is set, each new browser must enter it once before approval.</li>
+                        <li>Already approved browsers can continue until the available period ends, even after the approval time limit passes.</li>
                     </ul>
                 </article>
 
                 <article class="step-card">
                     <div class="step-head">
                         <div class="step-badge">Note</div>
-                        <div class="step-title">Actions at the Bottom</div>
+                        <div class="step-title">Close and Share</div>
                     </div>
                     <p>
-                        The dialog provides three actions to help you verify or cancel the setup before sharing the shortcut.
+                        Use the X in the upper right to close the dialog, or the buttons at the bottom to test and save the shortcut.
                     </p>
                     <ul>
-                        <li><strong>Test Connection</strong> checks whether the current settings can reach the server correctly.</li>
-                        <li><strong>Cancel</strong> closes the dialog without creating or sharing the shortcut.</li>
-                        <li><strong>Share</strong> generates the web shortcut and opens the system share flow.</li>
+                        <li><strong>X</strong> closes the dialog without saving a shortcut.</li>
+                        <li><strong>Test Connection</strong> checks whether the entered server address can be reached.</li>
+                        <li><strong>Save / Share</strong> saves the displayed accessCode and opens the system share flow.</li>
                     </ul>
                 </article>
             </div>

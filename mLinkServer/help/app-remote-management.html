@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mLinkServer · Remote App Management Guide</title>
+    <style>
+        :root {
+            --bg-top: #edf7ef;
+            --bg-bottom: #f7fbf8;
+            --panel: rgba(255, 255, 255, 0.94);
+            --ink: #1c1f23;
+            --muted: #59615c;
+            --line: #d6e4da;
+            --brand: #2e7d32;
+            --brand-soft: #dff0e3;
+            --brand-strong: #1f5f24;
+            --warn: #8a4a10;
+            --warn-soft: #fff7e8;
+            --shadow: 0 24px 60px rgba(45, 100, 55, 0.14);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --max-width: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #ffffff 0, #ffffff 12%, transparent 42%),
+                linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 60%, #eef6f0 100%);
+        }
+
+        a {
+            color: var(--brand);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .page {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 0 auto;
+            padding: 28px 0 56px;
+        }
+
+        .hero,
+        .panel,
+        .note,
+        .nav-bar {
+            background: var(--panel);
+            border: 1px solid rgba(255, 255, 255, 0.76);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 18px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 0 16px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--brand);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-link.disabled {
+            color: #9aa3b8;
+            pointer-events: none;
+            background: #f3f5fb;
+        }
+
+        .nav-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .nav-title {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        h2 {
+            margin: 0 0 14px;
+            font-size: 28px;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        p,
+        li {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .screenshot {
+            margin: 0;
+        }
+
+        .screenshot img {
+            display: block;
+            width: 100%;
+            max-width: 760px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .section {
+            margin-top: 24px;
+        }
+
+        .panel {
+            padding: 28px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 46px minmax(0, 1fr);
+            gap: 14px;
+            min-height: 120px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: #fff;
+        }
+
+        .step-num {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--brand-soft);
+            color: var(--brand-strong);
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .feature-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin: 8px 0;
+        }
+
+        .note {
+            margin-top: 24px;
+            padding: 24px 28px;
+            background: linear-gradient(180deg, var(--warn-soft), #fffdf7);
+            border-color: #f0d9ad;
+        }
+
+        .note h2 {
+            color: var(--warn);
+        }
+
+        @media (max-width: 860px) {
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-link {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(calc(100% - 20px), var(--max-width));
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+
+            .hero,
+            .panel,
+            .note,
+            .nav-bar {
+                padding: 20px;
+                border-radius: 22px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .remote-guide h1 { margin: 0 0 12px; font-size: clamp(26px, 4vw, 36px); }
+        .remote-guide .guide-links { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+        .remote-guide .guide-links a { padding: 10px 16px; background: var(--brand-soft); border-radius: 999px; }
+        .remote-guide .step { grid-template-columns: 42px minmax(0, 1fr); align-content: start; }
+        .remote-guide .step-num { width: 42px; height: 42px; }
+        .remote-guide figure { grid-column: 1 / -1; margin: 8px 0 0; }
+        .remote-guide figure img { display: block; width: 100%; max-width: 280px; height: auto; margin: auto; border: 1px solid var(--line); border-radius: 18px; background: white; }
+        .remote-guide figcaption { margin: 12px auto 0; color: var(--muted); font-size: 14px; line-height: 1.7; text-align: center; }
+        .remote-guide code { overflow-wrap: anywhere; }
+        .remote-guide .prerequisites { padding: 18px 20px; border-radius: 16px; background: var(--brand-soft); }
+        .remote-guide .prerequisites p { margin-bottom: 0; }
+        .remote-guide .remote-faq { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 24px; }
+        @media (max-width: 640px) { .remote-guide .step { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <nav class="nav-bar" aria-label="Page navigation"><a class="nav-link" href="./web-admin-screen.html"><span class="nav-icon">&#8592;</span><span><span class="nav-title">Previous Page</span><br>Web Admin Guide</span></a><a class="nav-link" href="./index.html"><span><span class="nav-title">Help Home</span><br>mLinkServer Help</span><span class="nav-icon">&#8594;</span></a></nav>
+
+        <section class="section panel remote-guide" id="app-remote-management">
+    <h1>Remote App Management Guide</h1><p>Use mLinkServer on another device to manage your server with the same familiar app screens. Manage links, SFTP, users, and device approvals remotely. The existing web admin page remains available.</p>
+    <div class="guide-links"><a href="#remote-app-steps">Set up remote app management</a><a href="./web-admin-screen.html">Web admin guide</a></div>
+    <div class="prerequisites"><h3>Prepare the server device first</h3><p>The <strong>server device</strong> runs your links; the <strong>management device</strong> is the other device you use to control it. Start the web server in mLinkServer on the server device and check that your account has <strong>administrator privileges</strong> in user management. Install mLinkServer on the management device and make sure it can reach the server web address and port. Running only SFTP is not enough for remote app management.</p><p>Remote app management requires <strong>Premium to be active on the server device</strong>.</p></div>
+    <div class="steps" id="remote-app-steps"><article class="step"><div class="step-num">1</div><div><h3>Enable remote management in Settings</h3><p>On the management device, open the menu → <strong>Settings</strong> and enable <strong>Remote management</strong>. Enter the server address, administrator username, password, and management app name. Choose an app name that identifies this device on the server.</p></div>
+    <figure><a href="./img/app-remote-settings-en.png" target="_blank" rel="noopener"><img src="./img/app-remote-settings-en.png" alt="Remote management connection settings" width="1080" height="2400" loading="lazy"></a><figcaption>Use the web server address without a link-specific path. Example: <code>https://link.example.com:17000</code>. The IP address and account in the screenshot are demonstration data.</figcaption></figure></article><article class="step"><div class="step-num">2</div><div><h3>Save and connect to request approval</h3><p>Press <strong>Save and connect</strong>. A management app connecting for the first time needs approval on the server. The main screen shows the server address with the <strong>Unapproved</strong> status while you wait.</p></div>
+    <figure><a href="./img/app-remote-pending-en.png" target="_blank" rel="noopener"><img src="./img/app-remote-pending-en.png" alt="Management device waiting for approval" width="1080" height="2400" loading="lazy"></a><figcaption>Server controls stay hidden and the web server restart button is disabled until approval and connection succeed.</figcaption></figure></article><article class="step"><div class="step-num">3</div><div><h3>Approve the app on the server device</h3><p>On the server device, open <strong>Device Approval</strong> in mLinkServer and check the <strong>Pending</strong> list. Verify the administrator account and management app name, then press <strong>Approve</strong>. Perform this step on the server device.</p></div>
+    <figure><a href="./img/app-remote-approval-en.png" target="_blank" rel="noopener"><img src="./img/app-remote-approval-en.png" alt="Server device approving the management app" width="1080" height="2400" loading="lazy"></a><figcaption>This example approves Remote phone for the admin account. A regular user account cannot connect for remote server management.</figcaption></figure></article><article class="step"><div class="step-num">4</div><div><h3>Refresh and manage the server</h3><p>Return to the management device and press <strong>Refresh</strong> on the main screen. The status beside the server address changes to <strong>Connected</strong>, and the app loads current server settings and links. You do not need to enter the password again after approval.</p></div>
+    <figure><a href="./img/app-remote-connected-en.png" target="_blank" rel="noopener"><img src="./img/app-remote-connected-en.png" alt="Connected remote server management screen" width="1080" height="2400" loading="lazy"></a><figcaption>Start or stop SFTP, configure SOCKS5, edit links, and manage device approvals, blocked IPs, users, and external app connections on the server.</figcaption></figure></article></div>
+    <div class="remote-faq"><h2>After connecting</h2><ul class="feature-list"><li><strong>Refresh</strong> checks connection and approval status and reloads server information. <strong>Restart web server</strong> restarts the remote web server. Restart is unavailable while disconnected.</li><li>For <strong>Disconnected</strong>, check that the server web service is running and verify its address, port, network, and port forwarding. If the server is stopped, start it on the server device first.</li><li>For an <strong>HTTPS certificate error</strong>, use the certificate check in Settings to review the server address and certificate before deciding whether to trust it.</li><li>Remote mode uses the connected server’s links and settings. Link tests also run on the server and return their results. Turn the Remote management toggle off to return to the management device’s local mode.</li><li>Screenshots use the English app interface and demonstration data. Enter the address and administrator account for your own server.</li></ul></div>
+    </section>
+
+        <nav class="nav-bar section" aria-label="Page navigation"><a class="nav-link" href="./web-admin-screen.html"><span class="nav-icon">&#8592;</span><span><span class="nav-title">Previous Page</span><br>Web Admin Guide</span></a><a class="nav-link" href="./index.html"><span><span class="nav-title">Help Home</span><br>mLinkServer Help</span><span class="nav-icon">&#8594;</span></a></nav>
+    </main>
+</body>
+</html>

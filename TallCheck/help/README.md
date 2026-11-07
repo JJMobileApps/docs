@@ -12,7 +12,7 @@ GitHub Pages가 `JJMobileApps/docs` 저장소 `main` 브랜치의 루트에서 �
 
 - `index.html`: 시작하기와 아이·기록 등록
 - `prepare.html`: 준비물, 마커 크기, 렌즈 거리, 수평 원점, 기준측정, 원거리 보정
-- `measure.html`: 보호자와 측정·혼자 측정, 결과 확인
+- `measure.html`: 벽에 기대어 측정·벽 없이 측정, 결과 확인
 - `photo.html`: 모델 준비, 사진 편집·자르기·인식·저장
 - `faq.html`: 측정 오차, 모델 설치, 업데이트, 프리미엄과 백업
 
